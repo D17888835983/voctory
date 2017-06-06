@@ -1,0 +1,231 @@
+<!DOCTYPE HTML >
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+    <title>注册界面</title>
+</head>
+    <body bgcolor="#00ff00">
+
+        <script>
+            // 显示日期和时间
+            function ShowDate(Elements) {
+                var temp;
+                var datetime = new Date();
+                var year = datetime.getYear();
+                var month = datetime.getMonth() + 1;
+                var date = datetime.getDate();
+                var day = datetime.getDay();
+                temp = year + "年" + month + "月" + date + "日 ";
+                Elements.innerHTML = temp;
+            }
+            function ShowTime(Elements) {
+                var temp = "";
+                var datetime = new Date();
+                var hour = datetime.getHours();
+                var minu = datetime.getMinutes();
+                var seco = datetime.getSeconds();
+                temp = temp + " " + hour + ":" + minu + ":" + seco + " ";
+                Elements.innerHTML = temp;   //这个Elements代表(表格)的id
+                window.setTimeout("ShowTime(" + Elements.id + ")", 1000)   //这里Elements.name或Elements.id不是Elements
+            }
+        </script>
+        <table width="600" height="20" border="1" cellpadding="1" cellspacing="0" bordercolor="#99FF00">
+            <tr>
+                <td>
+                    <font size="5" color="red" width="100">
+                        系统当前时间为:&nbsp;&nbsp;
+                    </font>
+                </td>
+                <td id="Time1" width="100">
+                    <script>ShowDate(Time1);</script>
+                </td>
+                <td width="92" id="Time2" width="100">
+                    <script>ShowTime(Time2);</script>
+                </td>
+            </tr>
+        </table>
+        <table width="100%" border="1" cellpadding="1" cellspacing="0" class="tableBorder_Botton" color="#0000FF">
+            <tr>
+                <td width="30%" height="67" align="left"><img src="logo.jpg" width="227" height="44"></td>
+                <td align="right" width="70%">
+                    <font size="20" color="red">会议室管理系统
+                </td>
+
+            </tr>
+        </table>
+        <br>
+        <br>
+        <br>
+        <br>
+        <script language="Javascript">
+            function mycheck(myform, tool) {
+                if (myform.uid3.value == "") {
+                    alert("请输入" + tool + "!");
+                    myform.uid3.focus();
+                    return;
+                }
+                if (myform.num2.value == "") {
+                    alert("请输入学号");
+                    myform.num2.focus();
+                    return;
+                }
+                if (myform.pwd.value == "") {
+                    alert("请输入密码");
+                    myform.pwd.focus();
+                    return;
+                }
+                if (myform.pwd1.value == "") {
+                    alert("请再次输入密码");
+                    myform.pwd1.focus();
+                    return;
+                }
+                if (myform.example4.value == "注册") {
+                    alert("注册成功！");
+                    window.location.href = "index.html";
+                    return;
+                }
+                alert("操作类型选择错误，请改为注册！！！！！");
+            }
+        </script>
+        <script language="Javascript">
+            function check(myform, tool) {
+                if (myform.name.value == "") {
+                    alert("请输入" + tool + "!");
+                    myform.name.focus();
+                    return;
+                }
+                if (myform.number.value == "") {
+                    alert("请输入学号");
+                    myform.number.focus();
+                    return;
+                }
+                if (myform.pwd.value == "") {
+                    alert("请输入密码");
+                    myform.pwd.focus();
+                    return;
+                }
+                if (myform.pwd1.value == "") {
+                    alert("请再次输入密码");
+                    myform.pwd1.focus();
+                    return;
+                }
+                if (myform.example4.value == "修改") {
+                    alert("修改成功！");
+                    window.location.href = "index.html";
+                    return;
+                }
+                alert("操作类型选择错误，请改为修改！！！！！");
+            }
+        </script>
+        <tr>
+            <td width="80" height="30">
+                <a href="index.html" alt="主页" width="22">
+                    <font size="5" color="red">
+                        返回主页
+                    </font>
+                </a>
+            </td>
+        </tr>
+        <br />
+
+
+        <tr align="center">
+            <td width="100" align="center">
+                <font size="5" color="blue">
+                    请输入注册人员信息:
+                </font>
+
+                <form name="form_u" method="post" action="#">
+
+                    <table border="0" cellpadding="0" cellspacing="0" align="center">
+                        <tr>
+                            <td width="100" height="27" align="right" valign="middle">姓名：</td>
+                            <td width="157" valign="middle"><input name="name" type="text" maxlength="20" /></td>
+                        </tr>
+
+                        <tr height="20" width="30">
+                            <td valign="left">身份选择：</td>
+                            <td valign="right">
+
+                                <select name="card" onchange="">
+                                    <option name="2" value="教师">教师</option>
+                                    <option name="1" value="管理员">管理员</option>
+                                    <option name="3" value="学生">学生</option>
+                                </select>
+
+                            </td>
+                        </tr>
+                        <tr height="20" width="30">
+                            <td valign="left">操作类型：</td>
+                            <td valign="right">
+
+                                <select name="example4" onchange="">
+                                    <option name="2" value="修改">修改</option>
+                                    <option name="1" value="注册">注册</option>
+
+                                </select>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="100" height="27" align="right" valign="middle">学号/工号：</td>
+                            <td width="157" valign="middle"><input name="number" type="text" maxlength="20" /></td>
+                        </tr>
+                        <tr>
+                            <td width="100" height="27" align="right" valign="middle">密码：</td>
+                            <td width="157" valign="middle"><input name="pwd" type="password" maxlength="20" /></td>
+                        </tr>
+                        <tr>
+                            <td width="100" height="27" align="right" valign="middle">再次输入密码：</td>
+                            <td width="157" valign="middle"><input name="pwd1" type="password" maxlength="20" /></td>
+                        </tr>
+                        <tr>
+                            <td width="100" height="27" align="right" valign="middle">班级：</td>
+                            <td width="157" valign="middle"><input name="class" type="text" maxlength="20" /></td>
+                        </tr>
+
+                        <tr height="20" width="30">
+                            <td valign="left">性别：</td>
+                            <td valign="right">
+
+                                <select name="sex" onchange="">
+                                    <option name="2" value="男">男</option>
+                                    <option name="1" value="女">女</option>
+
+                                </select>
+
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td width="100" height="27" align="right" valign="middle">年龄：</td>
+                            <td width="157" valign="middle"><input name="age" type="text" maxlength="20" /></td>
+                        </tr>
+
+                        <tr>
+                            <td width="100" height="27" align="right" valign="middle">职务：</td>
+                            <td width="157" valign="middle"><input name="uid" type="text" maxlength="20" /></td>
+                        </tr>
+                        <tr>
+                            <td width="100" height="27" align="right" valign="middle">电话：</td>
+                            <td width="157" valign="middle"><input name="tel" type="text" maxlength="20" /></td>
+                        </tr>
+                        <tr>
+                            <td width="100" height="27" align="right" valign="middle">地址：</td>
+                            <td width="157" valign="middle"><input name="addr" type="text" maxlength="30" /></td>
+                        </tr>
+                        <tr>
+                            <td width="100" height="27" align="right" valign="middle">简历：</td>
+                            <td width="157" valign="middle"><input name="uid" type="text" maxlength="50" /></td>
+                        </tr>
+                    </table>
+                    <table border="0" cellpadding="0" cellspacing="0" align="center" height="20" width="50" align="center">
+                        <tr align="center" valign="center">
+                            <td align="left"><input name="submit1" type="button" class="btn_grey" value="提交" onclick="SysManage_ManagerOper.btnSubmit_Click" /></td>&nbsp;&nbsp;
+                            <td align="right" "><input name=" submit2" type="button" class="btn_grey" value="刷新" onclick="window.location.reload()"></td>
+                            <td align="right"><input name="submit1" type="button" class="btn_grey" value="修改" onclick="check(form_u,'姓名')"></td>
+                        </tr>
+                    </table>
+                </form>
+    </body>
+</html>
