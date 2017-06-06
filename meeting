@@ -1,0 +1,262 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+          "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <title>在线预订会议室</title>
+
+</head>
+<body bgcolor="#008800" background="images/bg.gif">
+    <script>
+        // 显示日期和时间
+        function ShowDate(Elements) {
+            var temp;
+            var datetime = new Date();
+            var year = datetime.getYear();
+            var month = datetime.getMonth() + 1;
+            var date = datetime.getDate();
+            var day = datetime.getDay();
+            temp = year + "年" + month + "月" + date + "日 ";
+            Elements.innerHTML = temp;
+        }
+        function ShowTime(Elements) {
+            var temp = "";
+            var datetime = new Date();
+            var hour = datetime.getHours();
+            var minu = datetime.getMinutes();
+            var seco = datetime.getSeconds();
+            temp = temp + " " + hour + ":" + minu + ":" + seco + " ";
+            Elements.innerHTML = temp;   //这个Elements代表(表格)的id
+            window.setTimeout("ShowTime(" + Elements.id + ")", 1000)   //这里Elements.name或Elements.id不是Elements
+        }
+    </script>
+    <table width="600" height="20" border="1" cellpadding="1" cellspacing="0" bordercolor="#99FF00">
+        <tr>
+            <td>
+                <font size="5" color="red" width="100">
+                    系统当前时间为:&nbsp;&nbsp;
+                </font>
+            </td>
+            <td id="Time1" width="100">
+                <script>ShowDate(Time1);</script>
+            </td>
+            <td width="92" id="Time2" width="100">
+                <script>ShowTime(Time2);</script>
+            </td>
+        </tr>
+    </table>
+
+    <table width="100%" border="1" cellpadding="1" cellspacing="0" class="tableBorder_Botton" color="#0000FF">
+        <tr>
+            <td width="30%" height="67" align="left"><img src="logo.jpg" width="227" height="44"></td>
+            <td align="right" width="70%">
+                <font size="20" color="red">会议室管理系统
+            </td>
+
+        </tr>
+    </table>
+    <table width="100%" height="30">
+        <tr>
+            <td align="center">
+                <font size="5" color="blue">
+                    登录身份： &nbsp;&nbsp;
+                    <input type="text" height="10" value="教师" />
+            </td>
+            <td align="right">
+                <font size="5" color="blue">
+                    工号：&nbsp;&nbsp;
+                    <input type="text" height="10" value="41455005 " />
+            </td>
+        </tr>
+    </table>
+    <tr>
+        <td width="80" height="30">
+            <a href="mainx.html" alt="主页" width="22">
+                <font size="5" color="red">
+                    返回主页<br />
+                </font>
+            </a>
+        </td>
+    </tr>
+    <tr align="center">
+        <td width="100" align="center">
+            <font size="5" color="blue">
+                会议室状态信息:
+            </font>
+        <td>
+    </tr>
+    <br />
+    <br />
+    <tr align="center">
+        <td width="100" align="center">
+            <font size="4" color="blue">
+                1.已预约会议室信息:
+            </font>
+        <td>
+    </tr>
+    <table width="600" border="1" >
+        <tr id="tr1" onmouseover="over(this.id)" onmouseout="out(this.id)">
+            <td>会议室</td>
+            <td>容量</td>
+            <td>预订日期</td>
+            <td>使用时间</td>
+            <td>结束时间</td>
+            <td>会议主题</td>
+            <td>会议设备</td>
+            <td>预订班级</td>
+        </tr>
+        <tr id="tr2" onmouseover="over(this.id)" onmouseout="out(this.id)">
+            <td>机电楼110</td>
+            <td>100</td>
+            <td>117/5/6</td>
+            <td>8时</td>
+            <td>11时</td>
+            <td>班会</td>
+            <td>投影仪，电脑</td>
+            <td>计1401</td>
+        </tr>
+        <tr id="tr3" onmouseover="over(this.id)" onmouseout="out(this.id)">
+            <td>机电楼315</td>
+            <td>60</td>
+            <td>117/5/6</td>
+            <td>9时</td>
+            <td>12时</td>
+            <td>班会</td>
+            <td>投影仪，电脑</td>
+            <td>计1302</td>
+        </tr>
+        <tr id="tr4" onmouseover="over(this.id)" onmouseout="out(this.id)">
+            <td>机电楼320</td>
+            <td>80</td>
+            <td>117/5/6</td>
+            <td>13时</td>
+            <td>15时</td>
+            <td>团日活动</td>
+            <td>投影仪，电脑</td>
+            <td>计1502</td>
+        </tr>
+        <tr id="tr5" onmouseover="over(this.id)" onmouseout="out(this.id)">
+            <td>机电楼415</td>
+            <td>60</td>
+            <td>117/5/6</td>
+            <td>9时</td>
+            <td>12时</td>
+            <td>班会</td>
+            <td>投影仪，电脑</td>
+            <td>信安1302</td>
+        </tr>
+        <tr id="tr6" onmouseover="over(this.id)" onmouseout="out(this.id)">
+            <td>机电楼815</td>
+            <td>60</td>
+            <td>117/5/6</td>
+            <td>9时</td>
+            <td>12时</td>
+            <td>班会</td>
+            <td>投影仪，电脑</td>
+            <td>通信1302</td>
+        </tr>
+    </table>
+    <script language="javascript">
+        function over(trname) {
+            eval(trname).style.backgroundColor = "0000FF";
+            eval(trname).style.color = "FFFFFF";
+        }
+        function out(trname) {
+            eval(trname).style.backgroundColor = "FFFFFF";
+            eval(trname).style.color = "000000";
+        }
+    </script>
+    <tr align="center">
+        <td width="100" align="center">
+            <font size="4" color="blue">
+                1.未预约会议室信息:
+            </font>
+        <td>
+    </tr>
+    <table width="600" border="1">
+        <tr id="tr1" onmouseover="over(this.id)" onmouseout="out(this.id)">
+            <td>会议室</td>
+            <td>容量</td>
+          
+            <td>预订日期</td>
+            <td>使用时间</td>
+            <td>结束时间</td>
+            <td>会议主题</td>
+            <td>会议设备</td>
+            <td>预订班级</td>
+        </tr>
+        <tr id="tr2" onmouseover="over(this.id)" onmouseout="out(this.id)">
+            <td>机电楼201</td>
+            <td>100</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>投影仪，电脑</td>
+            <td></td>
+        </tr>
+        <tr id="tr3" onmouseover="over(this.id)" onmouseout="out(this.id)">
+            <td>机电楼203</td>
+            <td>100</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>投影仪，电脑</td>
+            <td></td>
+        </tr>
+        <tr id="tr4" onmouseover="over(this.id)" onmouseout="out(this.id)">
+            <td>机电楼815</td>
+            <td>100</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>投影仪，电脑</td>
+            <td></td>
+        </tr>
+        <tr id="tr5" onmouseover="over(this.id)" onmouseout="out(this.id)">
+            <td>机电楼305</td>
+            <td>80</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>投影仪，电脑</td>
+            <td></td>
+        </tr>
+        <tr id="tr6" onmouseover="over(this.id)" onmouseout="out(this.id)">
+            <td>机电楼402</td>
+            <td>80</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>投影仪，电脑</td>
+            <td></td>
+        </tr>
+        <tr id="tr6" onmouseover="over(this.id)" onmouseout="out(this.id)">
+            <td>机电楼608</td>
+            <td>60</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>投影仪，电脑</td>
+            <td></td>
+        </tr>
+        <tr id="tr6" onmouseover="over(this.id)" onmouseout="out(this.id)">
+            <td>机电楼会议室</td>
+            <td>300</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>投影仪，电脑</td>
+            <td></td>
+        </tr>
+    </table>
+</body>
+</html>
+
+
