@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=GB2312" />
+    <title>会议室预约管理系统</title>
+    <script language="Javascript">
+        var ss = "";
+        function place() {
+            ss = "width=" + document.form1.text1.value + ",height=" + document.form1.text2.value
+            + ",top=" + document.form1.text3.value + "left=" + document.form1.text4.value;
+            var newform = window.open("index.html", "", ss);
+        }
+        function reset() {
+            window.location.reload();
+        }
+        function max() {
+            self.moveTo(0, 0);
+            self.resizeTo(screen.availWidth, screen.availHeight);
+        }
+    </script>
+</head>
+<body background="#00FF00" id="san">
+    <script language="Javascript">
+        var n = 0;
+        function title() {
+            n++;
+            if (n == 3) { n = 1 }
+            if (n == 1) { document.title = '*****欢迎来到北京科技大学计通学院会议室管理系统****' }
+            if (n == 2) { document.title = '您可以很方便在网上进行会议室的预约！！！！！！' }
+            setTimeout("title()", 600);
+
+
+        }
+        title();
+    </script>
+    <form name="form1" method="post" action="">
+        <p>页面大小：</p>
+        <p>
+            宽：
+            <input type="text" name="text1" id="text1" value="500" size="10" />
+            高：
+            <input type="text" name="text2" id="text2" value="400" size="10" />
+        </p>
+        <p>页面位置：</p>
+        <p>
+            x:
+            <input type="text" name="text3" id="text3" value="10" size="10" />
+        <p>
+            y:
+            <input type="text" name="text4" id="text4" value="10" size="10" />
+        </p>
+        <p>
+            <input type="button" name="submit" value="打开新页面" onclick="place()" />
+        </p>
+        <p>
+            <input type="button" name="submit2" value="刷新" onclick="reset()" />
+            <input type="button" name="submit1" value="窗口最大化" onclick="max()" />
+        </p>
+        <p>
+            <div align="justify">
+            </div>
+        </p>
+    </form>
+    <script language="Javascript">
+        san.innerHTML = '<iframe frameborder="0" scrolling="no" src="index.html" width="800" height="600" align="center"   allowtransparency></iframe>  '
+    </script>
+</body>
+
+</html>
