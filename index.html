@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=GB2312" />
+    <link href="style.css" rel="stylesheet" />
+    <title>会议室预约管理系统登录界面</title>
+    <script language="Javascript">
+        function myopen(divid) {
+            //根据传递的参数显示所在的层；
+            divid.style.display = "block";
+            divid.style.left = (document.body.clienwidth - 240) / 2;
+            divid.style.top = (document.body.clientHeight - 139) / 2;
+        }
+    </script>
+</head>
+<body bgcolor="#00FF00"  onload="clockon()" background="images/bg.gif">
+    <table height="341" width="777" cellpadding="0" cellspacing="0" align="center" border:2px red solid;>
+        <tbody>
+            <tr>
+                <td valign="top">
+                    <table class="tableBorder" height="47" border="1" width="100%">
+                        <tbody>
+                            <tr>
+                                <td valign="top">
+                                    <script background="blue"></script>
+                                    <table width="100%" height="95" border="0" cellpadding="0" cellspacing="0" class="tableBorder_Top">
+                                        <tr valign="top">
+                                            <td height="72" colspan="6">
+                                                <table width="100%" border="0" cellpadding="0" cellspacing="0" class="tableBorder_Botton">
+                                                    <tr>
+                                                        <td width="30%" height="67" align="left"><img src="logo.jpg" width="227" height="44"></td>
+                                                        <td align="right" width="70%">
+                                                            <font size="20" color="red">会议室管理系统
+                                                        </td>
+
+                                                    </tr>
+
+
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="300" height="150" background="jiemian.jpg">&nbsp;</td>
+                                <!--版本主显示的导航条-->
+                            </tr>
+                            <tr>
+                                <td background="Images/bg_Navigate.GIF">
+                                    <font size="5">
+                                        <a href="#" onclick="myopen(user)">用户登录</a>|<a href="meeting1.html">查看会议室</a>|<a href="#" onclick="window.location.reload()">刷新页面</a>
+                                    </font>
+                                <td width="20">&nbsp;</td>
+
+                </td>
+                <td width="80">
+                    <a href="register.html">注册</a><font color="#FF0000">
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table width="100%" height="45" border="0">
+        <font background-color="#00ff0f" size=" 4" color="red">
+            <tr>
+                <td><img src="Images/speaker.gif" width="20" height="20"></td>
+
+                <td><div class=" word_grey" id="bgclock"></div></td>
+                <td class="word_grey">
+                    <div align="right">您现在是游客身份，若要进行会议室预约请先登录，如果未注册请先注册！</div>
+                </td>
+                <td height="24" colspan="2">&nbsp;</td>
+            </tr>
+            <tr>
+                <td width="24">&nbsp;</td>
+                <td width="722" width="30" colspan="2">
+                    <marquee direction="left" scrollamount="1" scrolldelay="7">
+                        <img src="Images/dog.gif" height="19" width="18">欢迎来到北京科技大学会议室预约管理系统！
+                    </marquee>
+                </td>
+
+                <td width="20">&nbsp;</td>
+            </tr>
+        </font>
+    </table>
+    <script language="Javascript">
+        function mycheck(myform, tool) {
+           
+            if (myform.uid.value == "") {
+                alert("请输入" + tool + "!");
+                myform.uid.focus();
+                return;
+            }
+            if (myform.pwd.value == "") {
+                alert("请输入密码");
+                myform.pwd.focus();
+                return;
+            }
+            
+            if (myform.example.value == "教师" && myform.uid.value == "41455005" && myform.pwd.value == "41455005") {
+                alert("教师身份登录！");
+                window.location.href = "mainx.html";
+                return;
+            }
+            if (myform.example.value == "管理员" && myform.uid.value == "41455006" && myform.pwd.value == "41455006") {
+                alert("管理员身份登录！");
+                window.location.href = "mager.html";
+                return;
+            }
+            if (myform.example.value == "学生" && myform.uid.value == "41455004" && myform.pwd.value == "41455004") {
+                alert("学生身份登录！");
+                window.location.href = "student1.html";
+                return;
+            }
+            else
+            {
+                alert("输入有误，请重新输入或注册！！！！");
+                return;
+
+            }
+        }
+    </script>
+ 
+    <!--应用层设计开始-->
+    <div id="user" style="position:absolute; width:240px;height:139px; display:none;">
+        <table width="240" height="139" border="0" align="center" cellpadding="-2" cellspacing="-2">
+            <tr>
+                <td height="139" align="center">
+                    <form name="form_u" method="post" action="#">
+                        <table width="220" height="115" bgcolor="#00ffff" border="0" cellpadding="-2" cellspacing="-2" class="tableBorder" align="center">
+                            <tr align="center" valign="middle">
+                                <td height="24" colspan="2" background="Images/bg_login.gif">
+                                    <font color="#ff0000">===用户登录===</font>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="left">身份选择</td>
+                                <td valign="right">
+                                    <form name="form1">
+                                        <select name="example" onchange="">
+                                            <option name="2" value="教师">教师</option>
+                                            <option name="1" value="管理员">管理员</option>
+                                            <option name="3" value="学生">学生</option>
+                                        </select>
+                                    </form>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="100" height="27" align="right" valign="middle">用户名：</td>
+                                <td width="157" valign="middle"><input name="uid" type="text" maxlength="20" /></td>
+                            </tr>
+                            <tr>
+                                <td width="100" height="27" align="right" valign="middle">密码：</td>
+                                <td width="157" valign="middle"><input name="pwd" type="text" maxlength="20" /></td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr align="center" valign="center">
+                                <td align="left"><input name="submit1" type="button" class="btn_grey" value="登录" onclick="mycheck(form_u, '用户名')"></td>&nbsp;&nbsp;
+                                <td align="right" "><input name="submit2" type="button" class="btn_grey" value="关闭" onclick="window.location.reload()"></td>
+                </td>
+            </tr>
+        </table>
+        </form> </td>
+        </tr>
+        </table>
+
+    </div>
+
+    <table class="tableBorder" height="255" width="100%" cellpadding="-2" cellspacing="-2" border="0">
+        <tbody>
+            <tr>
+                <td width="13" background="Images/board_left.gif " height="32">&nbsp;</td>
+                <td style="COLOR: #00ffff" width="689" background="Images/board_left.gif">=最新状态=</td>
+                <td background="Images/board_right.gif" width="73">&nbsp;</td>
+            </tr>
+            <tr valign="top">
+                <td colspan="3" height="171">
+                    <table height="129" width="100%" cellpadding="-2" cellspacing="-2" border="0">
+                        <tbody>
+                            <tr>
+                                <td valign="top" align="middle">
+                                    <table class="tableBorder_Top" height="109" cellpadding="-2" cellspacing="-2"
+                                           border="0" width="100%">
+                                        <tr>
+                                            <td height="5"></td>
+                                        </tr>
+                                        <tr>
+                                            <td valign="top" width="136">
+                                                <div align="center">
+                                                    <font size="5" color="red">
+                                                        网址导航
+                                                </div>
+                                            </td>
+                                            <td width="1" background="Images/line.gif"></td>
+                                            <td valign="top" width="490">
+                                                <table width="100%" cellpadding="-2" cellspacing="-2" border="0">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td width="80%" height="30">
+                                                                <a href="http://teach.ustb.edu.cn/" alt="本科教学网" width="22">本科教学网</a>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td width="80%" height="30">
+                                                                <a href="http://www.ustb.edu.cn/index.asp" alt="校园主页" width="22">校园主页</a>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td width="80%" height="30">
+                                                                <a href="http://pay.ustb.edu.cn/showPublic" alt="电子支付平台" width="22">电子支付平台</a>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td width="80%" height="30">
+                                                                <a href="http://lib.ustb.edu.cn/" alt="科大图书馆" width="22">北京科技大学图书馆</a>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td width="80%" height="30">
+                                                                <script language="javascript" src="addbook.aspx"<a alt="科大图书馆" width="22">添加预定 (Add Booking)</a></script>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="2">
+                                                                <hr align="left" width="92%" noshade size="1" />
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="PADDING-LEFT: 10px" colspan="2">
+                                                                为中华之崛起而奋斗<br />学风严谨，崇尚实践<br />
+                                                                <u>奋斗</u><br />努力<font color="00FF00">求实鼎新</font>以北科人的标准要求自己！
+                                                            </td>
+                                                        </tr>
+
+                                                    </tbody>
+                                                </table>
+
+                                            </td>
+                                        </tr>
+                        </tbody>
+                    </table>
+                    <table class="tableBorder_Top" height="1" cellpadding="-2" cellspacing="-2" width="100%" border="0"></table>
+                </td>
+            </tr>
+        </tbody>
+    </table></td></tr></tbody></table>
+</body>
+
+</html>
